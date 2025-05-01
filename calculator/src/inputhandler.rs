@@ -1,8 +1,8 @@
 mod algorithms;  // Declare the algorithms module inside inputhandler
 
 //allows to check enums with == and !=
-#[derive(PartialEq)]
-enum OperationCheck {
+#[derive(Debug, PartialEq)]
+pub enum OperationCheck {
     InvalidOperator,
     InvalidDenom,
     InvalidNum1,
@@ -53,7 +53,7 @@ pub fn calculate(op: &str, n1: &str, n2: &str){
 
 }
 
-fn equation_check(op: &str, n1: &str, n2: &str) -> OperationCheck{
+pub fn equation_check(op: &str, n1: &str, n2: &str) -> OperationCheck{
 
     //operator check
     if op != "+" && op != "-" && op != "%" && op != "*" && op != "/" {

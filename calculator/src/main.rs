@@ -50,3 +50,47 @@ fn main() {
     }
 
 }
+
+
+
+#[cfg(test)]
+mod tests {
+    use super::inputhandler::{equation_check, read_exit, OperationCheck};
+
+    #[test]
+    fn test_read_exit_yes() {
+        assert!(read_exit("yes"));
+        assert!(read_exit("y"));
+        assert!(!read_exit("no"));
+    }
+
+    #[test]
+    fn test_valid_equation() {
+        let result = equation_check("+", "10", "2");
+        assert_eq!(result, OperationCheck::Valid);
+    }
+
+    #[test]
+    fn test_invalid_operator() {
+        let result = equation_check("invalid", "10", "2");
+        assert_eq!(result, OperationCheck::InvalidOperator);
+    }
+
+    #[test]
+    fn test_invalid_num1() {
+        let result = equation_check("+", "ten", "2");
+        assert_eq!(result, OperationCheck::InvalidNum1);
+    }
+
+    #[test]
+    fn test_invalid_num2() {
+        let result = equation_check("+", "10", "two");
+        assert_eq!(result, OperationCheck::InvalidNum2);
+    }
+
+    #[test]
+    fn test_divide_by_zero() {
+        let result = equation_check("/", "10", "0");
+        assert_eq!(result, OperationCheck::InvalidDenom);
+    }
+}
