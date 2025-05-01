@@ -1,22 +1,61 @@
-# Compiled output
+# ==================================
+# Build artifacts and target output
+# ==================================
 /target/
+**/*.rlib
+**/*.rmeta
+debug/
+release/
 
-# The Rust package manager lock file (optional but recommended)
+# ==================================
+# Cargo and Rust metadata
+# ==================================
 Cargo.lock
 
-# Dependency directory (can be ignored in most cases)
-/Cargo.toml
-
-# IDE specific files (VSCode, IntelliJ, etc.)
+# ==================================
+# IDE/editor settings
+# ==================================
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# OS-specific files (macOS, Windows, Linux)
-.DS_Store       # macOS
-Thumbs.db       # Windows
+# ==================================
+# OS-generated files
+# ==================================
+.DS_Store
+Thumbs.db
 
-# Rust backup files
+# ==================================
+# Rust backup or temp files
+# ==================================
 *.rs.bk
+*.tmp
 
+# ==================================
 # Logs
+# ==================================
 *.log
+
+# ==================================
+# Code coverage artifacts
+# ==================================
+coverage/
+*.profraw
+*.profdata
+llvm-cov-html/
+tarpaulin-report.*
+htmlcov/
+
+# ==================================
+# Binaries (optional, if you create CLI tools)
+/*.exe
+/*.out
+/*.a
+/*.so
+/*.dll
+
+# ==================================
+# Misc
+# ==================================
+*.lock
