@@ -27,7 +27,7 @@ fn main() {
 
     // println!("your equation was {} {} {}", n1, operation, n2);
 
-    inputhandler::calculate(op, n1, n2);
+    inputhandler::calculate(operation, n1, n2);
 
 
 
