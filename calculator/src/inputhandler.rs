@@ -23,3 +23,14 @@ pub fn calculate(op: &str, n1: &str, n2: &str){
 
 
 }
+
+pub fn read_exit(res: &str) -> bool{
+
+    match res {
+
+        "yes" | "y" => true,
+        _ => false,
+
+    }
+
+}

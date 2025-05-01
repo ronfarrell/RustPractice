@@ -9,6 +9,11 @@ fn main() {
     let mut n1 = String::new();
     let mut n2 = String::new();
 
+    let mut exit_result = String::new();
+
+    
+    loop {
+
     //get operation
     println!("please enter what operation you would like (+, -, /, %, *)");
     io::stdin().read_line(&mut operation).expect("failed to read line");
@@ -29,6 +34,15 @@ fn main() {
 
     inputhandler::calculate(operation, n1, n2);
 
+    println!("would you like to exit? (yes/no)");
+    io::stdin().read_line(&mut exit_result).expect("failed to read line");
+    let res = inputhandler::read_exit(&exit_result.trim());
 
+    if res {
+        break;
+    }
+
+
+    }
 
 }
