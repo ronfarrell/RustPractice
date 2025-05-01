@@ -18,55 +18,6 @@ fn main() {
     }
 }
 
-
-
-
-// fn main() {
-//     loop {
-//         // Get user input
-//         let (operation, n1, n2) = get_user_input();
-
-//         // Perform the calculation
-//         match inputhandler::calculate(&operation, &n1, &n2) {
-//             Ok(result) => println!("{}", result),
-//             Err(e) => println!("Error: {}", e),
-//         }
-
-//         // Ask if the user wants to exit
-//         println!();
-//         println!("Would you like to exit? (yes/no)");
-//         let mut exit_result = String::new();
-//         io::stdin().read_line(&mut exit_result).expect("Failed to read line");
-
-//         let res = inputhandler::read_exit(&exit_result.trim());
-
-//         if res {
-//             break;
-//         }
-//     }
-// }
-
-// // Function to handle user input
-// fn get_user_input() -> (String, String, String) {
-//     let mut operation = String::new();
-//     let mut n1 = String::new();
-//     let mut n2 = String::new();
-
-//     // Ask for the operation
-//     println!("Please enter what operation you would like (+, -, /, %, *)");
-//     io::stdin().read_line(&mut operation).expect("Failed to read line");
-
-//     // Ask for the first number
-//     println!("Please enter your first number");
-//     io::stdin().read_line(&mut n1).expect("Failed to read line");
-
-//     // Ask for the second number
-//     println!("Please enter your second number");
-//     io::stdin().read_line(&mut n2).expect("Failed to read line");
-
-//     (operation.trim().to_string(), n1.trim().to_string(), n2.trim().to_string())
-// }
-
 pub fn run_calculator<R: BufRead>(mut reader: R) -> bool{
     let mut operation = String::new();
     let mut n1 = String::new();
