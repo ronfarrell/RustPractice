@@ -5,14 +5,16 @@ mod inputhandler;
 
 fn main() {
     
-    let mut operation = String::new();
-    let mut n1 = String::new();
-    let mut n2 = String::new();
-
-    let mut exit_result = String::new();
+    
 
     
     loop {
+
+    let mut operation = String::new();
+    let mut n1 = String::new();
+    let mut n2 = String::new();
+    
+    let mut exit_result = String::new();
 
     //get operation
     println!("please enter what operation you would like (+, -, /, %, *)");
@@ -32,8 +34,10 @@ fn main() {
 
     // println!("your equation was {} {} {}", n1, operation, n2);
 
+    println!();
     inputhandler::calculate(operation, n1, n2);
 
+    println!();
     println!("would you like to exit? (yes/no)");
     io::stdin().read_line(&mut exit_result).expect("failed to read line");
     let res = inputhandler::read_exit(&exit_result.trim());

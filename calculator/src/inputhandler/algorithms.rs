@@ -1,10 +1,10 @@
 
 
-pub fn testcall(){
+// pub fn testcall(){
 
-    println!("called from testcall");
+//     println!("called from testcall");
 
-}
+// }
 
 pub fn add(n1: i32, n2: i32){
 
