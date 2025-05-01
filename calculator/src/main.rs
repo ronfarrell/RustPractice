@@ -1,5 +1,6 @@
 use std::io;
 
+mod inputhandler;
 
 
 fn main() {
@@ -24,7 +25,9 @@ fn main() {
     let n1 = n1.trim();
     let n2 = n2.trim();
 
-    println!("your equation was {} {} {}", n1, operation, n2);
+    // println!("your equation was {} {} {}", n1, operation, n2);
+
+    inputhandler::calculate(op, n1, n2);
 
 
 
