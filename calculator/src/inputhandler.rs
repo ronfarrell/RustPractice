@@ -11,47 +11,39 @@ pub enum OperationCheck {
     Valid,
 }
 
-pub fn calculate(op: &str, n1: &str, n2: &str){
-
+pub fn calculate(op: &str, n1: &str, n2: &str) -> Result<i32, &'static str> {
     print!("your equation was {} {} {} = ", n1, op, n2);
-    
 
     let check_result = equation_check(op, n1, n2);
 
     if check_result == OperationCheck::Valid {
-        
-        let n1: i32 = n1.trim().parse().expect("Failed to parse integer");
-        let n2: i32 = n2.trim().parse().expect("Failed to parse integer");
-
-        // like a case switch
-        match op {
-
-            "+" => algorithms::add(n1, n2),
-            "-" => algorithms::subtract(n1, n2),
-            "%" => algorithms::modular(n1, n2),
-            "*" => algorithms::multiply(n1, n2),
-            "/" => algorithms::divide(n1, n2),
+        let n1: i32 = n1.trim().parse().unwrap();
+        let n2: i32 = n2.trim().parse().unwrap();
 
 
-            _ => println!("error")
-
-        }
-    }
-    else{
-
-        match check_result {
-            OperationCheck::InvalidOperator => println!("Invalid Operator! Must use +, -, *, %, /"),
-            OperationCheck::InvalidDenom => println!("Invalid Denom! Do not divide by 0"),
-            OperationCheck::InvalidNum1 => println!("Invalid Num 1! Your first number must be an i32"),
-            OperationCheck::InvalidNum2 => println!("Invalid Num 2! Your second number must be an i32"),
-            OperationCheck::ModByZero => println!("Invalid Mod! You cannot mod by 0"),
-            _ =>  println!("Unexpected Error"),
-        }
-
+        return match op {
+            "+" => Ok(algorithms::add(n1, n2)),
+            "-" => Ok(algorithms::subtract(n1, n2)),
+            "%" => Ok(algorithms::modular(n1, n2)),
+            "*" => Ok(algorithms::multiply(n1, n2)),
+            _ => Ok(algorithms::divide(n1, n2)),
+            // _ => Err("unexpected"),
+        };
     }
 
+    // Error mapping
+    let msg = match check_result {
+        OperationCheck::InvalidOperator => "Invalid Operator! Must use +, -, *, %, /",
+        OperationCheck::InvalidDenom => "Invalid Denom! Do not divide by 0",
+        OperationCheck::InvalidNum1 => "Invalid Num 1! Your first number must be an i32",
+        OperationCheck::InvalidNum2 => "Invalid Num 2! Your second number must be an i32",
+        OperationCheck::ModByZero => "Invalid Mod! You cannot mod by 0",
+        _ => "Unexpected Error",
+    };
 
+    Err(msg)
 }
+
 
 pub fn equation_check(op: &str, n1: &str, n2: &str) -> OperationCheck{
 
@@ -97,3 +89,4 @@ pub fn read_exit(res: &str) -> bool{
     }
 
 }
+
