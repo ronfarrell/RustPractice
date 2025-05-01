@@ -1,0 +1,1 @@
+C:\Users\farrelrn\Desktop\Learning\ Rust\projects\greeter\target\debug\calculator.exe: C:\Users\farrelrn\Desktop\Learning\ Rust\projects\greeter\src\greeter.rs C:\Users\farrelrn\Desktop\Learning\ Rust\projects\greeter\src\main.rs
