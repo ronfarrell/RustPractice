@@ -1,0 +1,22 @@
+# Compiled output
+/target/
+
+# The Rust package manager lock file (optional but recommended)
+Cargo.lock
+
+# Dependency directory (can be ignored in most cases)
+/Cargo.toml
+
+# IDE specific files (VSCode, IntelliJ, etc.)
+.vscode/
+.idea/
+
+# OS-specific files (macOS, Windows, Linux)
+.DS_Store       # macOS
+Thumbs.db       # Windows
+
+# Rust backup files
+*.rs.bk
+
+# Logs
+*.log
